@@ -3,10 +3,15 @@ Overview
 This repository contains data source and code used in the paper entitled "Reconstructing Atmospheric Oxygenation History Using Machine Learning". Unsupervised and supervised machine learning were used to process global mafic igneous geochemistry big data (spanning 45 elements) across the last 4.0 Gyrs. We observe an overall two-step rise of atmospheric O2 similar to the published curves derived from independent sediment-hosted paleo-oxybarometers but with a more detailed fabric of O2 fluctuations superimposed. We compiled 1 data source and 3 codes to generate the diagrams in Fig. 3-Fig. 5. Here is the list of data and code files.
 
 Basalt.xlsx -- We compiled the global mafic igneous composition data based on Keller & Schoene and Dien et al that was originally extracted from EarthChem, GEOROC, and USGS repositories. 
+
 MCbg.m -- Calculating the time series of global mean mafic geochemistry composition using the weighted bootstrap sampling method of Keller and Schoene (2012).
+
 ClusterA.py -- Calculating the correlation matrix of results from mafic igneous geochemical big data for 45 elements.
+
 SOMbg.m -- Self-organizing analysis of mafic igneous geochemical compositon data.
+
 SVR_main.py -- Calculating the atmospheric O2 content using Support Vector Regression with mafic igneous geochemical big data.
+
 RF_main.py -- Calculating the atmospheric O2 content using Random Forests with mafic igneous geochemical big data.
 
 System Requirements
