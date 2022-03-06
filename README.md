@@ -18,7 +18,7 @@ SVR_main.py -- Calculating atmospheric O2 content using Support Vector Regressio
 
 RF_main.py -- Calculating atmospheric O2 content using Random Forests with mafic igneous geochemical big data.
 
-ANN_main -- Calculating atmospheric O2 content using Artificial Neural Network with mafic igneous geochemical big data.
+ANN_main.py -- Calculating atmospheric O2 content using Artificial Neural Network with mafic igneous geochemical big data.
 
 # System Requirements
 
