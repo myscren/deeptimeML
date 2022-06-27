@@ -6,7 +6,7 @@ This repository contains data source and code used in the paper entitled "Recons
 
 Data source -- we compiled the up-to-date global mafic igneous composition data directly from EarthChem data repository (http://portal.earthchem.org/) which includes PetDB, GEOROC, NAVDAT, and USGS database simultaneously. 
 
-MCbg.m -- Calculating the time series of global mean mafic geochemistry composition using the weighted bootstrap sampling method of Keller and Schoene (2012).
+MCbg.m -- Calculating the time series of global mean mafic geochemistry composition using the weighted bootstrap sampling method of Keller and Schoene (2012). We have added some data filtering processes in this code, including outlier filtering, RAR-based filtering and others. Please update the mcstask.m when using the StatisticsGeochemistry-master toolboox. 
 
 ClusterA.py -- Calculating the correlation matrix of results from mafic igneous geochemical big data for 44 elements.
 
