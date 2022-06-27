@@ -2,7 +2,7 @@
 
 # Overview
 
-This repository contains data source and code used in the paper entitled "Reconstructing Atmospheric Oxygenation History Using Machine Learning" by G. Chen et al. Unsupervised and supervised machine learning were used to process global mafic igneous geochemistry big data (spanning 45 elements) across the last 4.0 Gyrs. We observe an overall two-step rise of atmospheric O2 similar to the published curves derived from independent sediment-hosted paleo-oxybarometers but with a more detailed fabric of O2 fluctuations superimposed. We compiled 1 data source and 7 codes to generate the diagrams in Fig. 3-Fig. 5 and supplementary figures. Here is the list of data and code files.
+This repository contains data source and code used in the paper entitled "Reconstructing Atmospheric Oxygenation History Using Machine Learning" by G. Chen et al. Unsupervised and supervised machine learning were used to process global mafic igneous geochemistry big data (spanning 45 elements) across the last 4.0 Gyrs. We observe an overall two-step rise of atmospheric O2 similar to the published curves derived from independent sediment-hosted paleo-oxybarometers but with a more detailed fabric of O2 fluctuations superimposed. We compiled 1 data source and 7 codes to generate the diagrams in Fig. 3-Fig. 6 and supplementary figures. Here is the list of data and code files.
 
 Data source -- we compiled the up-to-date global mafic igneous composition data directly from EarthChem data repository (http://portal.earthchem.org/) which includes PetDB, GEOROC, NAVDAT, and USGS database simultaneously. 
 
