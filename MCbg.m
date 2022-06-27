@@ -26,7 +26,7 @@ age_uncert_min = 100; % Set minimum age uncertainty (analagous to kernel width)
 
 ages = dataraw(:,5);
 age_uncert = dataraw(:,4)-dataraw(:,3);
-age_uncert(age_uncert<age_uncert_min | isnan(age_uncert)) = age_uncert_min;
+age_uncert(age_uncert<age_uncert_min) = age_uncert_min;
 
 % Construct a matrix holding all the data to be used in the simulation
 uncert=zeros(1,length(simitemsin)+2);
@@ -55,21 +55,21 @@ for i=1:length(simitemsin)
         %% Phanerozoic era
         data1=dataraw(1:N,XP{i});
         data1(find(data1<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using meanÂ¡Ã€2std
         T1=nanmean(data1)+3*nanstd(data1);
         T2=nanmean(data1)-3*nanstd(data1);
         data1(find(data1>T1 | data1<T2))=NaN;
         %% Precambrian era
         data2=dataraw(N+1:M,XP{i});
         data2(find(data2<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using meanÂ¡Ã€2std
         T3=nanmean(data2)+3*nanstd(data2);
         T4=nanmean(data2)-3*nanstd(data2);
         data2(find(data2>T3 | data2<T4))=NaN;
         %% Archean era
         data3=dataraw(M+1:end,XP{i});
         data3(find(data3<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using meanÂ¡Ã€2std
         T5=nanmean(data3)+3*nanstd(data3);
         T6=nanmean(log10(data3))-3*nanstd(data3);
         data3(find(data3>T5 | data3<T6))=NaN;
@@ -80,21 +80,21 @@ for i=1:length(simitemsin)
         %% Phanerozoic era
         data1=dataraw(1:N,XP{i});
         data1(find(data1<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using meanÂ¡Ã€2std
         T1=nanmean(log10(data1))+3*nanstd(log10(data1));
         T2=nanmean(log10(data1))-3*nanstd(log10(data1));
         data1(find(data1>10^T1 | data1<10^T2))=NaN;
         %% Proterozoic era
         data2=dataraw(N+1:M,XP{i});
         data2(find(data2<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using meanÂ¡Ã€2std
         T3=nanmean(log10(data2))+3*nanstd(log10(data2));
         T4=nanmean(log10(data2))-3*nanstd(log10(data2));
         data2(find(data2>10^T3 | data2<10^T4))=NaN;
         %% Archean era
         data3=dataraw(M+1:end,XP{i});
         data3(find(data3<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using meanÂ¡Ã€2std
         T5=nanmean(log10(data3))+3*nanstd(log10(data3));
         T6=nanmean(log10(data3))-3*nanstd(log10(data3));
         data3(find(data3>10^T5 | data3<10^T6))=NaN;
