@@ -8,17 +8,17 @@ Data source -- we compiled the up-to-date global mafic igneous composition data 
 
 MCbg.m -- Calculating the time series of global mean mafic geochemistry composition using the weighted bootstrap sampling method of Keller and Schoene (2012). We have added some data filtering processes in this code, including outlier filtering, RAR-based filtering and others. Please update the mcstask.m when using the StatisticsGeochemistry-master toolboox. 
 
-ClusterA.py -- Calculating the correlation matrix of results from mafic igneous geochemical big data for 44 elements.
+ClusterA.py -- Calculating the correlation matrix of results from global mafic igneous geochemical big data for 44 elements.
 
-SOMbg.m -- Self-organizing analysis of mafic igneous geochemical compositon data.
+SOMbg.m -- Self-organizing analysis of global mafic igneous geochemical compositon data.
 
-PCA.py -- Principal component analysis of mafic igneous geochemistry data.
+PCA.py -- Principal component analysis of global mafic igneous geochemistry data.
 
-SVR_main.py -- Calculating atmospheric O2 content using Support Vector Regression with mafic igneous geochemical big data.
+SVR_main.py -- Calculating atmospheric O2 content using Support Vector Regression with global mafic igneous geochemical big data.
 
-RF_main.py -- Calculating atmospheric O2 content using Random Forests with mafic igneous geochemical big data.
+RF_main.py -- Calculating atmospheric O2 content using Random Forests with global mafic igneous geochemical big data.
 
-ANN_main.py -- Calculating atmospheric O2 content using Artificial Neural Network with mafic igneous geochemical big data.
+ANN_main.py -- Calculating atmospheric O2 content using Artificial Neural Network with global mafic igneous geochemical big data.
 
 # System Requirements
 
