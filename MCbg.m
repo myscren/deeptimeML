@@ -7,7 +7,7 @@
 % will be read into data, filtered, and passed to mctask.
 clear all
 %% Load required variables
-[dataraw,name]=xlsread('D:\Pycharm\DeeptimeML\Ign\data\Data source\New_ign1_mafic_final.xlsx','Sheet1');
+[dataraw,name]=xlsread('D:\Pycharm\DeeptimeML\Ign\data\Data source\New_ign1_mafic_final.xlsx','Sheet3');
 [NN,nameT]=xlsread('D:\Pycharm\DeeptimeML\Ign\data\Data source\New_ign1_mafic_final.xlsx','Name');
 % load newign;
 titlename=name(1,:); 
@@ -23,16 +23,21 @@ simitemsin=nameT;
  end
 % See what the age of each sample is; this will be our independent variable
 age_uncert_min = 100; % Set minimum age uncertainty (analagous to kernel width)
-
 ages = dataraw(:,5);
 age_uncert = dataraw(:,4)-dataraw(:,3);
+% Calcualte the relative age range (RAR)
+RAR=age_uncert./ages*100;
+RAR(isinf(RAR))=0;
+
 age_uncert(age_uncert<age_uncert_min) = age_uncert_min;
 
 % Construct a matrix holding all the data to be used in the simulation
-uncert=zeros(1,length(simitemsin)+2);
-data_f=zeros(length(ages),length(simitemsin)+2);
+uncert=zeros(1,length(simitemsin)+3);
+data_f=zeros(length(ages),length(simitemsin)+3);
 data_f(:,1) = age_uncert; % Independent variable uncert goes in position one
 data_f(:,2) = ages; % Independent variable values go in position two
+data_f(:,3) = RAR; % Independent variable RAR go in position three
+%% sort the data by ages
 N=find(ages==540);if length(N)>1 N=N(1);end
 M=find(ages==2500);if length(M)>1 M=N(1);end
 %% creat histogram plot
@@ -50,57 +55,57 @@ while i>0
 end
 %% delete outliers in igneous geochemistry data
 for i=1:length(simitemsin)
-    A=find(strcmp({'SiO2','MgO','CaO','AL2O3','NaO','FeOT'},simitemsin{i}));
+    A=find(strcmp({'SIO2','MGO','CAO','AL2O3','NAO','FEOT'},simitemsin{i}));
     if length(A) 
         %% Phanerozoic era
         data1=dataraw(1:N,XP{i});
         data1(find(data1<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using mean±2std
         T1=nanmean(data1)+3*nanstd(data1);
         T2=nanmean(data1)-3*nanstd(data1);
         data1(find(data1>T1 | data1<T2))=NaN;
         %% Precambrian era
         data2=dataraw(N+1:M,XP{i});
         data2(find(data2<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using mean±2std
         T3=nanmean(data2)+3*nanstd(data2);
         T4=nanmean(data2)-3*nanstd(data2);
         data2(find(data2>T3 | data2<T4))=NaN;
         %% Archean era
         data3=dataraw(M+1:end,XP{i});
         data3(find(data3<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using mean±2std
         T5=nanmean(data3)+3*nanstd(data3);
         T6=nanmean(log10(data3))-3*nanstd(data3);
         data3(find(data3>T5 | data3<T6))=NaN;
         %% combine
-        data_f(:,i+2)=[data1;data2;data3];
-        uncert(i+2)=0.01; %ign.err.(simitemsin{i});
+        data_f(:,i+3)=[data1;data2;data3];
+        uncert(i+3)=0.01; %ign.err.(simitemsin{i});
     else 
         %% Phanerozoic era
         data1=dataraw(1:N,XP{i});
         data1(find(data1<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using mean±2std
         T1=nanmean(log10(data1))+3*nanstd(log10(data1));
         T2=nanmean(log10(data1))-3*nanstd(log10(data1));
         data1(find(data1>10^T1 | data1<10^T2))=NaN;
         %% Proterozoic era
         data2=dataraw(N+1:M,XP{i});
         data2(find(data2<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using mean±2std
         T3=nanmean(log10(data2))+3*nanstd(log10(data2));
         T4=nanmean(log10(data2))-3*nanstd(log10(data2));
         data2(find(data2>10^T3 | data2<10^T4))=NaN;
         %% Archean era
         data3=dataraw(M+1:end,XP{i});
         data3(find(data3<=0))=NaN;
-        % delete outliers using mean¡À2std
+        % delete outliers using mean±2std
         T5=nanmean(log10(data3))+3*nanstd(log10(data3));
         T6=nanmean(log10(data3))-3*nanstd(log10(data3));
         data3(find(data3>10^T5 | data3<10^T6))=NaN;
         %% combine
-        data_f(:,i+2)=[data1;data2;data3];
-        uncert(i+2)=0.01; %ign.err.(simitemsin{i});
+        data_f(:,i+3)=[data1;data2;data3];
+        uncert(i+3)=0.01; %ign.err.(simitemsin{i});
 
     end
 end
@@ -113,11 +118,15 @@ simax=51;
 agemin=0;
 agemax=4000;
 
+% filtering defined by RAR_f
+RAR_f=50;
+
 % Reject data that is out of the range of interest, is all NANs, or isn't from a contienent
 % ign.MgO>simin &ign.MgO<simax 
 % test=(ign.SiO2>simin &ign.SiO2<simax &ign.Age>agemin&ign.Age<agemax &~any(isnan(data(:,1:2)),2) &any(~isnan(data(:,4:end)),2) &ign.Elevation>-100 &~ign.oibs); 
 % test=(data(:,3)>simin &data(:,3)<simax & ages>agemin & ages<agemax & ~any(isnan(data(:,1:2)),2));
-test=(ages>agemin & ages<agemax & ~any(isnan(data_f(:,1:2)),2));
+% test=(data_f(:,2)>agemin & data_f(:,2)<agemax & ~any(isnan(data_f(:,1:2)),2) & data_f(:,3)<RAR_f);
+test=(data_f(:,2)>agemin & data_f(:,2)<agemax & ~any(isnan(data_f(:,1:2)),2));
 data=data_f(test,:);
 
 % Compute weighting coefficients
@@ -182,12 +191,12 @@ bincenters=linspace(0+(agemax-agemin)/2/nbins,agemax-(agemax-agemin)/2/nbins,nbi
 i=length(simitemsout);
 while i>0
     figure    
-    plot(data(:,2),data(:,2+i),'.');    hold on
+    plot(data(:,2),data(:,3+i),'.');    hold on
     errorbar(bincenters(1:end-1),nanmean(simaverages(:,1:end-1,i)),2.*nanmean(simerrors(:,1:end-1,i)),'.r')
     xlabel('Age (Ma)')
     ylabel(simitemsout{i})
     xlim([0,4000])
-    ylim([min(data(:,2+i)),max(data(:,2+i))])
+    ylim([min(data(:,3+i)),max(data(:,3+i))])
     set(gca,'tickdir','out')
 %     title(simtitle)
 %     formatfigure
