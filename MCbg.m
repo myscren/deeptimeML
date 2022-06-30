@@ -1,5 +1,5 @@
 % MCbg.m
-% Updated from Montecarlo.m (of Keller)
+% Updated from Montecarlo.m (of Keller, 2012)
 % Run a full monte carlo simulation
 % Each actual simulation task is conducted by mctask.m, this code provides
 % the data needed for mctask to work and stores the results Any variables 
