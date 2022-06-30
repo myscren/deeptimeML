@@ -118,7 +118,7 @@ simax=51;
 agemin=0;
 agemax=4000;
 
-% filtering defined by RAR_f
+% filtering defined by relative age range (RAR)
 RAR_f=50;
 
 % Reject data that is out of the range of interest, is all NANs, or isn't from a contienent
