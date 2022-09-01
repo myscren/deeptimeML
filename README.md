@@ -72,9 +72,9 @@ python ANN_main.py
 ## Demo
 run SVR_main.py:
 
-All Support Vector Machine (SVM) predictions of atmospheric O2 content:
-
+- All SVR modeling curves of atmospheric O2 content:
 ![Figure1](./docs/Demo_SVR_figure1.jpg)<br>
+- All SVR modeling curves of atmospheric O2 content:
 ![Figure2](./docs/Demo_SVR_figure2.jpg)<br>
 ![Figure3](./docs/Demo_SVR_figure3.jpg)<br>
 ![Figure4](./docs/Demo_SVR_figure4.jpg)<br>
