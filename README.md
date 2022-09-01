@@ -49,6 +49,7 @@ git clone https://github.com/myscren/deeptimeML.git
 cd deeptimeML
 ```
 ## Instructions to run
+- Update the path of data file (New_ign1_mafic_ts_final.xlsx)
 - Run the mat codes just by clicking the "run" button in MATLAB.<br>
 - Run the py codes according to the following instructions:
 
@@ -69,6 +70,7 @@ run ANN_main.py
 python ANN_main.py
 ```
 ## Demo
+run SVR_main.py:
 ![Figure1](./docs/Demo_SVR_figure1.jpg)<br>
 ![Figure2](./docs/Demo_SVR_figure2.jpg)<br>
 ![Figure3](./docs/Demo_SVR_figure3.jpg)<br>
