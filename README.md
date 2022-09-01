@@ -31,10 +31,11 @@ Installation time is less than 10 minutes.
 The codes used in this paper were compiled on the MATLAB 2016a and Python 3.8.<br>
 The versions of other packages are, specifically:
 ```
-numpy==1.21.1
-pandas==X.XX
-sklearn==X.XX
-matplotlib==X.XX
+numpy==1.21.0
+pandas==1.3.0
+sklearn==0.0
+matplotlib==3.4.2
+seaborn=0.11.2
 ...
 ```
 
