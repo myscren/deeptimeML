@@ -51,7 +51,6 @@ cd deeptimeML
 ## Instructions to run
 - The mat codes just click the "run" button in MATLAB.<br>
 - The py codes need to run according to the following instructions:
-```
 run PCA.py:
 ```
 python PCA.py
