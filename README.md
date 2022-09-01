@@ -76,8 +76,8 @@ run SVR_main.py:
 ![Figure1](./docs/Demo_SVR_figure1.jpg)<br>
 - Mean O2 prediction curve:
 ![Figure2](./docs/Demo_SVR_figure2.jpg)<br>
--Parameterization
+-RMSE curve of SVM modeling with Monte Carlo simulation
 ![Figure3](./docs/Demo_SVR_figure3.jpg)<br>
--The RMSE curve of SVM modeling with Monte Carlo simulation
+-Parameterization
 ![Figure4](./docs/Demo_SVR_figure4.jpg)<br>
 ##
