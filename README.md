@@ -71,7 +71,6 @@ python ANN_main.py
 ```
 ## Demo
 run SVR_main.py:
-
 - All SVR modeling curves of atmospheric O2 content:
 ![Figure1](./docs/Demo_SVR_figure1.jpg)<br>
 - Mean O2 prediction curve:
