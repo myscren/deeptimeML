@@ -74,8 +74,10 @@ run SVR_main.py:
 
 - All SVR modeling curves of atmospheric O2 content:
 ![Figure1](./docs/Demo_SVR_figure1.jpg)<br>
-- All SVR modeling curves of atmospheric O2 content:
+- Mean O2 prediction curve:
 ![Figure2](./docs/Demo_SVR_figure2.jpg)<br>
+-Parameterization
 ![Figure3](./docs/Demo_SVR_figure3.jpg)<br>
+-The RMSE curve of SVM modeling with Monte Carlo simulation
 ![Figure4](./docs/Demo_SVR_figure4.jpg)<br>
 ##
