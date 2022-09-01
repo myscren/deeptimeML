@@ -64,11 +64,13 @@ run RF_main.py
 ```
 python RF_main.py
 ```
-run AA_main.py
+run ANN_main.py
 ```
-python AA_main.py
+python ANN_main.py
 ```
 ## Demo
-![Figure1](./docs/Demo_test_figure1.jpg)<br>
-![Figure2](./docs/Demo_test_figure2.jpg)<br>
+![Figure1](./docs/Demo_SVR_figure1.jpg)<br>
+![Figure2](./docs/Demo_SVR_figure2.jpg)<br>
+![Figure3](./docs/Demo_SVR_figure3.jpg)<br>
+![Figure4](./docs/Demo_SVR_figure4.jpg)<br>
 ##
