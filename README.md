@@ -49,8 +49,8 @@ git clone https://github.com/myscren/deeptimeML.git
 cd deeptimeML
 ```
 ## Instructions to run
-- The mat codes just click the "run" button in MATLAB.<br>
-- The py codes need to run according to the following instructions:
+- Run the mat codes just by clicking the "run" button in MATLAB.<br>
+- Run the py codes according to the following instructions:
 run PCA.py:
 ```
 python PCA.py
