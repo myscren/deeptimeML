@@ -18,7 +18,7 @@ from sklearn.model_selection import train_test_split
 from scipy.interpolate import make_interp_spline
 
 ### INPUT DATA
-data=pd.read_excel('D:\\Pycharm\\DeeptimeML\\Ign\\data\\Data source\\New_ign1_mafic_ts_final.xlsx','Sheet10',index_col='Time')
+data=pd.read_excel('D:\\Pycharm\\DeeptimeML\\Ign\\data\\Data source\\New_ign1_mafic_ts_final.xlsx','Sheet1',index_col='Time')
 data=data.apply(pd.to_numeric, errors='coerce') #coerce makes character becomes null
 
 predic=data.loc[:,'SIO2':'CS'].values  # DATA USED FOR PREDICITON
