@@ -49,13 +49,13 @@ for k in range(10):
     noise = np.hstack((noise1, noise2))
     datay=train_data['O2']+noise # add uncertainty
     datax=train_data.loc[:,'SIO2':'CS']
-    '''
+    #parameter optimization
     row=[50,100,150,200,250,300,350,400,450,500]
     col=[5,7,9,11,13,15,17,19,21,23,25,27]
     '''
     row = [100, 500]
     col = [5, 7]
-
+    '''
     parameters={'n_estimators':row,
             'criterion':['mse'],
             'max_features':col
@@ -86,7 +86,6 @@ for k in range(10):
         sse=np.sum(ei**2,axis=0)
         sst=np.sum((true_value-y_mean)**2)
         score=1-sse/sst
-        #用0替换小于0的值
         #score[score<0]=0
         return score
     r2=r2score(datay.values.reshape(len(datay),1),pre_fit.values) #R方检验
